@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (3.1.3)
+  - Reachability (3.2)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - SwiftDate (2.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Reachability
+  - SDWebImage (~> 3.7)
+  - SwiftDate
+
+SPEC CHECKSUMS:
+  Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
+
+COCOAPODS: 0.38.2
