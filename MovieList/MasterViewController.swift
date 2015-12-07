@@ -2,7 +2,7 @@
 //  MasterViewController.swift
 //  MovieList
 //
-//  Created by MacbookUser on 11/30/15.
+//  Created by Keith Ingram on 11/30/15.
 //  Copyright © 2015 keithingram. All rights reserved.
 //
 
@@ -76,10 +76,13 @@ class MasterViewController: UICollectionViewController {
         updateLayout()
 
     }
-
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
-        updateLayout()
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition(nil) { (context) -> Void in
+            self.updateLayout()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -218,7 +221,7 @@ class MasterViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MovieListCellIdentifier, forIndexPath: indexPath) as! MovieListCell
         
-        cell.movieInfo = movieLists[currentListIndex.rawValue].movies[indexPath.row] as! MovieInfo
+        cell.movieInfo = movieLists[currentListIndex.rawValue].movies[indexPath.row] as? MovieInfo
         cell.posterWidth = posterWidth
         
         cell.configure()
@@ -268,7 +271,6 @@ class MasterViewController: UICollectionViewController {
 class MovieListCell: UICollectionViewCell {
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var titleLabel : UILabel?
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
     var movieInfo : MovieInfo?
     var posterWidth : Int?
@@ -287,7 +289,7 @@ class MovieListCell: UICollectionViewCell {
         // Lazy load movie poster if available
         if movieInfo!.poster_path != nil {
             
-            let posterURL = "\(TheMovieDB.Router.imageURLString)\(posterWidth ?? TheMovieDB.Router.posterWidths[0])\(movieInfo!.poster_path ?? "")"
+            let posterURL = "\(TheMovieDB.Router.imageURLString)\(posterWidth ?? TheMovieDB.posterWidths[0])\(movieInfo!.poster_path ?? "")"
             
             imageView!.sd_setImageWithURL(NSURL(string: posterURL), placeholderImage: UIImage(named: "No Poster Available"), completed: nil)
             

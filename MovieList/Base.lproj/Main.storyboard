@@ -86,7 +86,6 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="AQj-Bu-bWD" id="uzr-ZL-jfG"/>
-                                    <outlet property="imageViewHeight" destination="SIN-pb-Xq4" id="XVq-Xr-oNK"/>
                                     <outlet property="titleLabel" destination="iZ0-PD-HWC" id="Tgl-VT-Ybr"/>
                                 </connections>
                             </collectionViewCell>

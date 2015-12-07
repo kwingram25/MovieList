@@ -1,8 +1,8 @@
 //
-//  MyAPIFilms.swift
+//  TheMovieDB.swift
 //  MovieList
 //
-//  Created by MacbookUser on 11/30/15.
+//  Created by Keith Ingram on 11/30/15.
 //  Copyright © 2015 keithingram. All rights reserved.
 //
 
@@ -22,9 +22,6 @@ struct TheMovieDB {
     enum Router: URLRequestConvertible {
         static let baseURLString = "http://api.themoviedb.org/3"
         static let imageURLString = "http://image.tmdb.org/t/p/w"
-        
-        // Available poster image sizes
-        static let posterWidths : [Int] = [342, 500, 780]
         
         static let apiKey = "5ee9d156b4fe056b1a65f0600a3dbdaf"
         
@@ -69,14 +66,16 @@ struct TheMovieDB {
         }
     }
     
+    static let posterWidths : [Int] = [92, 154, 185, 342, 500, 780]
+    
     //  Returns the largest poster size that is smaller than the given image width
     static func posterWidth(width : CGFloat) -> Int {
         
-        var posterWidth : Int = Router.posterWidths[0]
+        var posterWidth : Int = posterWidths[0]
         let scale = UIScreen.mainScreen().scale
-        for i in 0..<Router.posterWidths.count {
-            if Int(width*scale) > Router.posterWidths[i] {
-                posterWidth = Router.posterWidths[i+1]
+        for i in 0..<posterWidths.count {
+            if Int(width*scale) > posterWidths[i] {
+                posterWidth = posterWidths[i+1]
             }
         }
         return posterWidth

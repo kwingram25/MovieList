@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MovieList
 //
-//  Created by MacbookUser on 11/30/15.
+//  Created by Keith Ingram on 11/30/15.
 //  Copyright © 2015 keithingram. All rights reserved.
 //
 
