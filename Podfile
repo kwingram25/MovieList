@@ -13,12 +13,3 @@ pod 'SwiftDate'
 pod 'Reachability'
 
 end
-
-target 'MovieListTests' do
-
-end
-
-target 'MovieListUITests' do
-
-end
-
