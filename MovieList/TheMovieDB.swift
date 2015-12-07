@@ -24,7 +24,7 @@ struct TheMovieDB {
         static let baseURLString = "http://api.themoviedb.org/3"
         static let apiKey = "5ee9d156b4fe056b1a65f0600a3dbdaf"
         
-        case MovieList(List, Int)       // /movies/top_rated, /movies/upcoming, /movies/top_rated
+        case MovieList(List, Int)       // /movies/now_playing, /movies/upcoming, /movies/top_rated
         case MovieInfo(Int)             // /movie/{id}?append_to_response=credits
         
         var URLRequest: NSMutableURLRequest {
