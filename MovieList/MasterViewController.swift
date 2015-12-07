@@ -289,7 +289,7 @@ class MovieListCell: UICollectionViewCell {
         // Lazy load movie poster if available
         if movieInfo!.poster_path != nil {
             
-            let posterURL = "\(TheMovieDB.Router.imageURLString)\(posterWidth ?? TheMovieDB.posterWidths[0])\(movieInfo!.poster_path ?? "")"
+            let posterURL = "\(TheMovieDB.imageURLString)\(posterWidth ?? TheMovieDB.posterWidths[0])\(movieInfo!.poster_path ?? "")"
             
             imageView!.sd_setImageWithURL(NSURL(string: posterURL), placeholderImage: UIImage(named: "No Poster Available"), completed: nil)
             

@@ -19,14 +19,13 @@ enum List : Int {
 
 struct TheMovieDB {
     
+    // MARK : - API Request Router
     enum Router: URLRequestConvertible {
         static let baseURLString = "http://api.themoviedb.org/3"
-        static let imageURLString = "http://image.tmdb.org/t/p/w"
-        
         static let apiKey = "5ee9d156b4fe056b1a65f0600a3dbdaf"
         
-        case MovieList(List, Int)
-        case MovieInfo(Int)
+        case MovieList(List, Int)       // /movies/top_rated, /movies/upcoming, /movies/top_rated
+        case MovieInfo(Int)             // /movie/{id}?append_to_response=credits
         
         var URLRequest: NSMutableURLRequest {
             let (path, parameters) : (String, [String : AnyObject]) = {
@@ -66,6 +65,7 @@ struct TheMovieDB {
         }
     }
     
+    static let imageURLString = "http://image.tmdb.org/t/p/w"
     static let posterWidths : [Int] = [92, 154, 185, 342, 500, 780]
     
     //  Returns the largest poster size that is smaller than the given image width

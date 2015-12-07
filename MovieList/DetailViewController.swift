@@ -132,7 +132,7 @@ class DetailViewController: UIViewController {
             
             if posterImageView != nil {
                 let posterWidth = TheMovieDB.posterWidth( posterImageView.frame.size.width ?? 342.0)
-                let posterURL = "\(TheMovieDB.Router.imageURLString)\(posterWidth)\(movieInfo.poster_path ?? "")"
+                let posterURL = "\(TheMovieDB.imageURLString)\(posterWidth)\(movieInfo.poster_path ?? "")"
                 
                 posterImageView?.sd_setImageWithURL(NSURL(string: posterURL), placeholderImage: UIImage(named: "No Poster Available"), completed: nil)
             }
