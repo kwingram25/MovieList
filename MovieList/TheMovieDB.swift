@@ -66,9 +66,11 @@ struct TheMovieDB {
     }
     
     static let imageURLString = "http://image.tmdb.org/t/p/w"
+    
+    //  Available TMDB poster sizes
     static let posterWidths : [Int] = [92, 154, 185, 342, 500, 780]
     
-    //  Returns the largest poster size that is smaller than the given image width
+    //  Returns the smallest poster size that is larger than the given image width
     static func posterWidth(width : CGFloat) -> Int {
         
         var posterWidth : Int = posterWidths[0]
